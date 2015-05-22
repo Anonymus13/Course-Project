@@ -1,6 +1,6 @@
 run_analysis <- function(){
   #first some prerequisites to stablish the conection and install 'dplyr' package
-  dir <- readline("please refer the path where you downloaded and unzipped the UCIHAR dataset:
+  dir <- readline("Please refer to the location path of the downloaded and unziped UCIHAR dataset:
     ")
   setwd(dir)
     ans <- readline("It is necessary 'dplyr' package to run this function, did you already installed it? (y/n) :
@@ -41,7 +41,7 @@ run_analysis <- function(){
   
     #Lastly the subset data is grouped by subject and label
     act_subj<- group_by(data2, subject, label) #grouping data
-    tid <- summarise_each(act_subj, funs(mean), matches("tBodyAcc"))
+    tid <- summarise_each(act_subj, funs(mean))
     #Building a new tidy independent data (tid) with the means of all columns
     #of the subset data (data2) grouped by subject and label activity
     print(tid)
